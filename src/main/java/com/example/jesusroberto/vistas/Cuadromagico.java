@@ -14,6 +14,7 @@ public class Cuadromagico extends Stage {
     }
 
     private void CrearUI(){
+
         escena = new Scene (new Button("Da Click"));
     }
 }
