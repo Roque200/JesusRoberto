@@ -1,6 +1,10 @@
 package com.example.jesusroberto;
 
+import com.example.jesusroberto.componentes.Pista;
+import com.example.jesusroberto.modelos.conexion;
 import com.example.jesusroberto.vistas.Calculadora;
+import com.example.jesusroberto.vistas.Cuadromagico;
+import com.example.jesusroberto.vistas.EmpleadoTaqueria;
 import com.example.jesusroberto.vistas.memorama;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -16,7 +20,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu mnParcial1, mnParcial2,mnSalida;
-    private MenuItem mitCalculadora, mitSalir,mitmemorama;
+    private MenuItem mitCalculadora, mitSalir,mitmemorama, mitCuadromagico,mitEmpleado,mitPista;
     private BorderPane bdpPanel;
 
     @Override
@@ -33,17 +37,30 @@ public class HelloApplication extends Application {
         stage.setMaximized(true);
         stage.show();
 
+        conexion.crearConexion();
     }
 
     private void CrearMenu() {
         //Menu primer parcial
         mitCalculadora = new MenuItem("Calculadora");
+
         mitmemorama = new MenuItem("Memorama");
+
+        mitCuadromagico = new MenuItem("Cuadro Magico");
+
+        mitEmpleado = new MenuItem("Empleado Taqueria");
+
+        mitPista = new MenuItem("Auto Pista");
+
+
         mnParcial1 = new Menu("Primer parcial");
-        mnParcial1.getItems().addAll(mitCalculadora, mitmemorama);
+        mnParcial1.getItems().addAll(mitCalculadora, mitmemorama,mitCuadromagico,mitEmpleado);
 
         //Menu Segundo parcial
         mnParcial2= new Menu("Segundo parcial");
+        mitPista = new MenuItem("Manejo de hilos");
+        mitPista.setOnAction(event -> new Pista());
+        mnParcial2.getItems().add(mitPista);
 
         //Menu salida
         mnSalida = new Menu("Salida");
@@ -55,11 +72,10 @@ public class HelloApplication extends Application {
 
         mnbPrincipal = new MenuBar();
         mnbPrincipal.getMenus().addAll(mnParcial1,mnParcial2,mnSalida);
-
+        mitmemorama.setOnAction(event -> new memorama());
         mitCalculadora.setOnAction(actionEvent ->new Calculadora());
-        mitmemorama.setOnAction(actionEvent -> new memorama());
-
-
+        mitCuadromagico.setOnAction(actionEvent -> new Cuadromagico());
+        mitEmpleado.setOnAction(event -> new EmpleadoTaqueria());
     }
 
     public static void main(String[] args) {

@@ -5,4 +5,10 @@ module com.example.jesusroberto {
 
     opens com.example.jesusroberto to javafx.fxml;
     exports com.example.jesusroberto;
+
+    requires java.sql;
+    requires mysql.connector.j;
+    requires org.kordamp.bootstrapfx.core;
+
+    opens com.example.jesusroberto.modelos;
 }
