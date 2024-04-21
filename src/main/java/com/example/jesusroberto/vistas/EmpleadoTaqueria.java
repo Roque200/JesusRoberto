@@ -5,6 +5,7 @@ import com.example.jesusroberto.modelos.EmpleadosDAO;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -17,7 +18,7 @@ public class EmpleadoTaqueria extends Stage {
     private BorderPane bpnPrincipal;
     private ToolBar tlbMenu;
     private Scene escena;
-    private Button btnAgregarEmpleado;
+    private Button btnAgregarEmpleado,btnAgregarBebidas;
     private TableView<EmpleadosDAO> tbvEmpleados;
 
     public EmpleadoTaqueria(){
@@ -28,15 +29,15 @@ public class EmpleadoTaqueria extends Stage {
     }
 
     private void CrearUI(){
-        ImageView imvEmpleado = new ImageView(
-                getClass().getResource("/imagenes/").toString());
-
+        ImageView imvEmpleado = new ImageView(new Image(getClass().getResourceAsStream("/imagenes/empleado.png")));
+        imvEmpleado.setFitHeight(50);
+        imvEmpleado.setFitWidth(50);
         btnAgregarEmpleado = new Button();
-        btnAgregarEmpleado.setOnAction(event -> new EmpleadosForm(tbvEmpleados,null));
-        btnAgregarEmpleado.setPrefSize(50,50);
+        btnAgregarEmpleado.setOnAction(event -> new EmpleadosForm(tbvEmpleados, null));
+        btnAgregarEmpleado.setPrefSize(50, 50);
         btnAgregarEmpleado.setGraphic(imvEmpleado);
-        tlbMenu = new ToolBar(btnAgregarEmpleado);
 
+        tlbMenu = new ToolBar(btnAgregarEmpleado);
 
 
         CrearTable();

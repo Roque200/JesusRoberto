@@ -1,8 +1,6 @@
 package com.example.jesusroberto.modelos;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -10,7 +8,7 @@ public class EmpleadosDAO {
     private int idEmpleado;
     private String nomEmpleado;
     private String rfcEmpleado;
-    private Float salario;
+    private float salario;
     private String telefono;
     private String direccion;
 
@@ -39,9 +37,7 @@ public class EmpleadosDAO {
         this.rfcEmpleado = rfcEmpleado;
     }
 
-    public float getSalario() {
-        return salario;
-    }
+    public float getSalario() {return salario;}
 
     public void setSalario(float salario) {
         this.salario = salario;

@@ -2,10 +2,7 @@ package com.example.jesusroberto;
 
 import com.example.jesusroberto.componentes.Pista;
 import com.example.jesusroberto.modelos.conexion;
-import com.example.jesusroberto.vistas.Calculadora;
-import com.example.jesusroberto.vistas.Cuadromagico;
-import com.example.jesusroberto.vistas.EmpleadoTaqueria;
-import com.example.jesusroberto.vistas.memorama;
+import com.example.jesusroberto.vistas.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -20,7 +17,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu mnParcial1, mnParcial2,mnSalida;
-    private MenuItem mitCalculadora, mitSalir,mitmemorama, mitCuadromagico,mitEmpleado,mitPista;
+    private MenuItem mitCalculadora, mitSalir,mitmemorama, mitCuadromagico,mitPista,mitAppTacos;
     private BorderPane bdpPanel;
 
     @Override
@@ -48,13 +45,15 @@ public class HelloApplication extends Application {
 
         mitCuadromagico = new MenuItem("Cuadro Magico");
 
-        mitEmpleado = new MenuItem("Empleado Taqueria");
-
         mitPista = new MenuItem("Auto Pista");
+
+        mitAppTacos = new MenuItem("AppTacos");
+
+
 
 
         mnParcial1 = new Menu("Primer parcial");
-        mnParcial1.getItems().addAll(mitCalculadora, mitmemorama,mitCuadromagico,mitEmpleado);
+        mnParcial1.getItems().addAll(mitCalculadora, mitmemorama,mitCuadromagico,mitAppTacos);
 
         //Menu Segundo parcial
         mnParcial2= new Menu("Segundo parcial");
@@ -75,7 +74,8 @@ public class HelloApplication extends Application {
         mitmemorama.setOnAction(event -> new memorama());
         mitCalculadora.setOnAction(actionEvent ->new Calculadora());
         mitCuadromagico.setOnAction(actionEvent -> new Cuadromagico());
-        mitEmpleado.setOnAction(event -> new EmpleadoTaqueria());
+        mitAppTacos.setOnAction(event -> new LoginApp());
+
     }
 
     public static void main(String[] args) {
