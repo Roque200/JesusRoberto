@@ -1,8 +1,12 @@
 package com.example.jesusroberto;
 
 import com.example.jesusroberto.componentes.Pista;
+import com.example.jesusroberto.componentes.impresion;
 import com.example.jesusroberto.modelos.conexion;
-import com.example.jesusroberto.vistas.*;
+import com.example.jesusroberto.vistas.Calculadora;
+import com.example.jesusroberto.vistas.Cuadromagico;
+import com.example.jesusroberto.vistas.LoginApp;
+import com.example.jesusroberto.vistas.memorama;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -17,7 +21,7 @@ public class HelloApplication extends Application {
 
     private MenuBar mnbPrincipal;
     private Menu mnParcial1, mnParcial2,mnSalida;
-    private MenuItem mitCalculadora, mitSalir,mitmemorama, mitCuadromagico,mitPista,mitAppTacos;
+    private MenuItem mitCalculadora, mitSalir,mitmemorama, mitCuadromagico,mitPista,mitAppTacos,mitImpresora;
     private BorderPane bdpPanel;
 
     @Override
@@ -49,6 +53,8 @@ public class HelloApplication extends Application {
 
         mitAppTacos = new MenuItem("AppTacos");
 
+        mitImpresora = new MenuItem("Impresora");
+
 
 
 
@@ -59,7 +65,7 @@ public class HelloApplication extends Application {
         mnParcial2= new Menu("Segundo parcial");
         mitPista = new MenuItem("Manejo de hilos");
         mitPista.setOnAction(event -> new Pista());
-        mnParcial2.getItems().add(mitPista);
+        mnParcial2.getItems().addAll(mitPista,mitImpresora);
 
         //Menu salida
         mnSalida = new Menu("Salida");
@@ -75,6 +81,7 @@ public class HelloApplication extends Application {
         mitCalculadora.setOnAction(actionEvent ->new Calculadora());
         mitCuadromagico.setOnAction(actionEvent -> new Cuadromagico());
         mitAppTacos.setOnAction(event -> new LoginApp());
+        mitImpresora.setOnAction(event -> new impresion());
 
     }
 
